@@ -8,4 +8,5 @@ return {
   { import = "astrocommunity.pack.java" }, -- add Java language support
   { import = "astrocommunity.lsp.nvim-java" }, -- opt-in to nvim-java for LSP
   -- import/override with your plugins folder
+  { import = "astrocommunity.pack.cpp" },
 }
