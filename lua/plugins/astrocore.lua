@@ -61,6 +61,7 @@ return {
           function() vim.cmd ":ASToggle" end,
           desc = "Toggle Autosave 💾",
         },
+        { vim.api.nvim_set_keymap("n", "<Leader>m", ":make<CR>", { noremap = true, silent = true }) },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
