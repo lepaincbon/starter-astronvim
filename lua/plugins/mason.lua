@@ -1,4 +1,3 @@
-
 -- Customize Mason plugins
 
 ---@type LazySpec
@@ -31,6 +30,7 @@ return {
     opts = {
       ensure_installed = {
         "python",
+        "cpp",
         -- add more arguments for adding more debuggers
       },
     },

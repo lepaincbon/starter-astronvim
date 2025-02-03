@@ -27,3 +27,10 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "jflex",
   command = "source ~/.config/nvim/syntax/jflex.vim",
 })
+-- This will run last in the setup process, so it's ideal for custom configurations
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "c", -- Apply to C files
+  callback = function()
+    vim.opt_local.makeprg = "gcc % -o %:r" -- Set makeprg to gcc for C files
+  end,
+})
