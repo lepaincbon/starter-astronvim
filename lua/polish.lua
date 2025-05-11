@@ -31,6 +31,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "c", -- Apply to C files
   callback = function()
-    vim.opt_local.makeprg = "gcc % -o %:r" -- Set makeprg to gcc for C files
+    vim.opt_local.makeprg = "gcc % -o %:r -lm" -- Set makeprg to gcc for C files
   end,
 })
