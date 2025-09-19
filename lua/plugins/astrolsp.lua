@@ -37,12 +37,17 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
+      "ocamllsp",
       -- "pyright"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      -- You can put server-specific lspconfig options here if needed
+      ocamllsp = {
+        cmd = { "ocamllsp" }, -- optional if you need to override
+        root_dir = require("lspconfig.util").root_pattern("*.ml", "*.mli", "dune-project", ".git"),
+      },
     },
     -- customize how language servers are attached
     handlers = {
@@ -52,6 +57,8 @@ return {
       -- the key is the server that is being setup with `lspconfig`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
       -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+      -- Optional: custom setup for ocamllsp
+      ocamllsp = function(_, opts) require("lspconfig").ocamllsp.setup(opts) end,
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
